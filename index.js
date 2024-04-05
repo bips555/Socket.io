@@ -30,21 +30,19 @@ console.log("New User Connected")
 
 // },1000)
 
-setInterval(()=>
+// setInterval(()=>
+// {
+//     let date = new Date();
+//     let time = date.getTime()
+//     socket.emit("myEvent",time);
+// emit method helps to create custom event
+
+// },1000)
+socket.on('message',(msg)=>
 {
-    let date = new Date();
-    let time = date.getTime()
-    socket.emit("myEvent",time);
-    // emit method helps to create custom event
-
-},1000)
+    console.log(msg)
 })
-
-
-
-
-
-
+})
 
 
 app.get('/',(req,res)=>{
