@@ -17,7 +17,7 @@
     <!--Includes socket library from server and allows client side javascript to communicate with the server  -->
 
     <script>
-      let socket = io();
+      let socket = io("/sell");
     //   const send = ()=>
     //   {
     //     let name = document.getElementById("name").value;
@@ -26,9 +26,14 @@
     //     socket.emit("myEvent",name)
     
     //   }
-    socket.on('myBroadcastEvent',(msg)=>
+    // socket.on('myBroadcastEvent',(msg)=>
+    // {
+    //     document.getElementById("message").innerHTML=msg
+    // })
+
+    socket.on('myEvent',(msg)=>
     {
-        document.getElementById("message").innerHTML=msg
+        document.getElementById('message').innerHTML=msg
     })
 
       //  This line initializes a connection to the Socket.IO server. The io() function establishes a WebSocket connection to the server. Once this line executes, the client can send and receive events with the server through this socket.

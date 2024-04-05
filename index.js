@@ -44,9 +44,23 @@ const io = new Server(expressServer)
 // })
 // })
 
-io.on('connection',(socket)=>
+// io.on('connection',(socket)=>
+// {
+// io.sockets.emit("myBroadcastEvent","Hello All")
+// })
+
+let buyNsp = io.of("/buy")
+
+buyNsp.on("connection",(socket)=>
 {
-io.sockets.emit("myBroadcastEvent","Hello All")
+   buyNsp.emit('myEvent',"Hello? Are you Buying?")
+})
+
+let sellNsp = io.of("/sell")
+
+sellNsp.on("connection",(socket)=>
+{
+   sellNsp.emit('myEvent',"Hello? Are you Selling?")
 })
 
 app.get('/',(req,res)=>{
