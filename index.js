@@ -1,3 +1,4 @@
+const { Socket } = require("dgram");
 const express = require("express");
 const app = express();
 const http = require('http')
@@ -7,6 +8,22 @@ const {Server} = require('socket.io')
 
 const io = new Server(expressServer)
 // created object of socket Server
+
+io.on('connection',(socket)=>
+{
+
+console.log("New User Connected")
+// When the user connects the server in client side.
+// eg: when he opens the portal
+// connection event
+
+setTimeout(()=>
+{
+    socket.send("Hello(server to client)")
+},10000)
+})
+
+
 
 
 
