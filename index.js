@@ -1,4 +1,3 @@
-const { Socket } = require("dgram");
 const express = require("express");
 const app = express();
 const http = require('http')
@@ -49,19 +48,25 @@ const io = new Server(expressServer)
 // io.sockets.emit("myBroadcastEvent","Hello All")
 // })
 
-let buyNsp = io.of("/buy")
+// let buyNsp = io.of("/buy")
 
-buyNsp.on("connection",(socket)=>
+// buyNsp.on("connection",(socket)=>
+// {
+//    buyNsp.emit('myEvent',"Hello? Are you Buying?")
+// })
+
+// let sellNsp = io.of("/sell")
+
+// sellNsp.on("connection",(socket)=>
+// {
+//    sellNsp.emit('myEvent',"Hello? Are you Selling?")
+// })
+
+io.on('connection',(socket)=>
 {
-   buyNsp.emit('myEvent',"Hello? Are you Buying?")
+    console.log("New User Connected")
 })
 
-let sellNsp = io.of("/sell")
-
-sellNsp.on("connection",(socket)=>
-{
-   sellNsp.emit('myEvent',"Hello? Are you Selling?")
-})
 
 app.get('/',(req,res)=>{
     res.sendFile(__dirname+'/index.html')

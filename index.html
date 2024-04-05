@@ -3,45 +3,78 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Socket</title>
-    
+    <title>Socket simple live chat</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
     <!-- <h1 id="myTime">Socket Project</h1> -->
 
     <!-- <input type="text" id="name" placeholder="Enter name">
     <button id="send" onclick="send()">Send </button> -->
-    <h1 id="message"></h1>
-
+    <!-- <h1 id="message"></h1> -->
+    <h3 class="text-center m-3">Socket Simple Live Chat</h3>
     <script src="/socket.io/socket.io.js"></script>
+
+    <div class="container">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-6 col-12 col-lg-6">
+          <div class="input-group">
+            <input id="message" class="form-control" type="text" />
+            <button onclick="sendMsg()" class="btn btn-info">Send Data</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-6 col-12 col-lg-6">
+          <ul></ul>
+        </div>
+      </div>
+    </div>
+
     <!--Includes socket library from server and allows client side javascript to communicate with the server  -->
 
-    <script>
+    <!-- <script>
       let socket = io("/sell");
-    //   const send = ()=>
-    //   {
-    //     let name = document.getElementById("name").value;
-    //     // alert(name);
-    //     // socket.send(name)
-    //     socket.emit("myEvent",name)
+      const send = ()=>
+      {
+        let name = document.getElementById("name").value;
+         alert(name);
+         socket.send(name)
+        socket.emit("myEvent",name)
     
-    //   }
-    // socket.on('myBroadcastEvent',(msg)=>
-    // {
-    //     document.getElementById("message").innerHTML=msg
-    // })
+      }
+    socket.on('myBroadcastEvent',(msg)=>
+    {
+        document.getElementById("message").innerHTML=msg
+    })
 
     socket.on('myEvent',(msg)=>
     {
         document.getElementById('message').innerHTML=msg
     })
 
-      //  This line initializes a connection to the Socket.IO server. The io() function establishes a WebSocket connection to the server. Once this line executes, the client can send and receive events with the server through this socket.
-    //   socket.on("myEvent", (msg) => {
+       This line initializes a connection to the Socket.IO server. The io() function establishes a WebSocket connection to the server. Once this line executes, the client can send and receive events with the server through this socket.
+      socket.on("myEvent", (msg) => {
        
-    //     document.getElementById("myTime").innerHTML = msg;
-    //   });
+        document.getElementById("myTime").innerHTML = msg;
+      });
 
+     </script>  -->
+    <script>
+      let socket = io();
+      const sendMsg = () => {
+       
+          let msg = document.getElementById("message").value;
+          alert(msg);
+        ;
+      };
     </script>
   </body>
 </html>
