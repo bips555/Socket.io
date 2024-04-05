@@ -1,11 +1,12 @@
-const express = require("express");
-const app = express();
-const http = require("http");
-const expressServer = http.createServer(app);
+//just for learning about socket, we simply used javascript in this index.js. index.js was server for our application where we integrated socket with htt express server //
+// const express = require("express");
+// const app = express();
+// const http = require("http");
+// const expressServer = http.createServer(app);
 
-const { Server } = require("socket.io");
+// const { Server } = require("socket.io");
 
-const io = new Server(expressServer);
+// const io = new Server(expressServer);
 // created object of socket Server
 
 // io.on('connection',(socket)=>
@@ -69,21 +70,20 @@ const io = new Server(expressServer);
 //   });
 // });
 
-io.on('connection',(socket)=>
-{
+// io.on('connection',(socket)=>
+// {
 
-socket.join('kitchen-room')
-io.sockets.in('kitchen-room').emit('cooking','fried rice cooking')
-socket.join('bed-room')
-io.sockets.in('bed-room').emit('sleep','i am sleeping')
+// socket.join('kitchen-room')
+// let countofkitchen = io.sockets.adapter.rooms.get('kitchen-room').size;
+// io.sockets.in('kitchen-room').emit('cooking','fried rice cooking ='+countofkitchen)
+// socket.join('bed-room')
+// io.sockets.in('bed-room').emit('sleep','i am sleeping')
+// })
 
-})
+// app.get("/", (req, res) => {
+//   res.sendFile(__dirname + "/index.html");
+// });
 
-
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
-});
-
-expressServer.listen(3000, () => {
-  console.log("Server is running on port 3000");
-});
+// expressServer.listen(3000, () => {
+//   console.log("Server is running on port 3000");
+// });

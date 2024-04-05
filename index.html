@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<!-- just for learning about socket we simply used javascript in this index.html. index.html was client for our application -->
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -11,15 +12,15 @@
       crossorigin="anonymous"
     />
   </head>
-  <body>
+  <body> -->
     <!-- <h1 id="myTime">Socket Project</h1> -->
 
     <!-- <input type="text" id="name" placeholder="Enter name">
     <button id="send" onclick="send()">Send </button> -->
     <!-- <h1 id="message"></h1> -->
-    <h3 class="text-center m-3">Socket Simple Live Chat</h3>
+    <!-- <h3 class="text-center m-3">Socket Simple Live Chat</h3>
     <h1 id="message"></h1>
-    <script src="/socket.io/socket.io.js"></script>
+    <script src="/socket.io/socket.io.js"></script> -->
 
     <!-- <div class="container">
       <div class="row d-flex justify-content-center">
@@ -71,28 +72,28 @@
       });
 
      </script>  -->
-    <script>
+    <!-- <script>
       let socket = io();
-      socket.on('sleep',(msg)=>
+      socket.on('coo',(msg)=>
       {
         document.getElementById('message').innerHTML = msg
       })
 
-    //   const sendMsg = () => {
+      const sendMsg = () => {
        
-    //       let msg = document.getElementById("message").value;
-    //      socket.emit('chat',msg)
-    //      document.getElementById("message").value="";
+          let msg = document.getElementById("message").value;
+         socket.emit('chat',msg)
+         document.getElementById("message").value="";
      
 
-    //   };
-    //   socket.on('chat_send',(msg)=>
-    //   {
-    //     let listItem = document.createElement('li')
-    //     listItem.textContent = msg
-    //     let msghistory = document.getElementById('msghistory')
-    //     msghistory.appendChild(listItem)
-    //   })
-    </script>
-  </body>
-</html>
+      };
+      socket.on('chat_send',(msg)=>
+      {
+        let listItem = document.createElement('li')
+        listItem.textContent = msg
+        let msghistory = document.getElementById('msghistory')
+        msghistory.appendChild(listItem)
+      })
+     </script>  -->
+  <!-- </body>
+</html> -->
