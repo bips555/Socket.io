@@ -22,14 +22,22 @@ console.log("New User Connected")
 //     socket.send("Hello(server to client)")
 // },3000)
 
+// setInterval(()=>
+// {
+//     let date = new Date();
+//     let time = date.getTime()
+//     socket.send(time);
+
+// },1000)
+
 setInterval(()=>
 {
     let date = new Date();
     let time = date.getTime()
-    socket.send(time);
+    socket.emit("myEvent",time);
+    // emit method helps to create custom event
 
 },1000)
-
 })
 
 
