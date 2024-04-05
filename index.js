@@ -17,11 +17,21 @@ console.log("New User Connected")
 // eg: when he opens the portal
 // connection event
 
-setTimeout(()=>
+// setTimeout(()=>
+// {
+//     socket.send("Hello(server to client)")
+// },3000)
+
+setInterval(()=>
 {
-    socket.send("Hello(server to client)")
-},10000)
+    let date = new Date();
+    let time = date.getTime()
+    socket.send(time);
+
+},1000)
+
 })
+
 
 
 
