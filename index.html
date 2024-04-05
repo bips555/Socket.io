@@ -4,26 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Socket</title>
+    
   </head>
   <body>
     <!-- <h1 id="myTime">Socket Project</h1> -->
 
-    <input type="text" id="name" placeholder="Enter name">
-    <button id="send" onclick="send()">Send </button>
+    <!-- <input type="text" id="name" placeholder="Enter name">
+    <button id="send" onclick="send()">Send </button> -->
+    <h1 id="message"></h1>
 
     <script src="/socket.io/socket.io.js"></script>
-    <!--INcludes socket library from server and allows client side javascript to communicate with the server  -->
+    <!--Includes socket library from server and allows client side javascript to communicate with the server  -->
 
     <script>
       let socket = io();
-      const send = ()=>
-      {
-        let name = document.getElementById("name").value;
-        // alert(name);
-        socket.send(name)
+    //   const send = ()=>
+    //   {
+    //     let name = document.getElementById("name").value;
+    //     // alert(name);
+    //     // socket.send(name)
+    //     socket.emit("myEvent",name)
     
-
-      }
+    //   }
+    socket.on('myBroadcastEvent',(msg)=>
+    {
+        document.getElementById("message").innerHTML=msg
+    })
 
       //  This line initializes a connection to the Socket.IO server. The io() function establishes a WebSocket connection to the server. Once this line executes, the client can send and receive events with the server through this socket.
     //   socket.on("myEvent", (msg) => {

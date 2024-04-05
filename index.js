@@ -9,10 +9,10 @@ const {Server} = require('socket.io')
 const io = new Server(expressServer)
 // created object of socket Server
 
-io.on('connection',(socket)=>
-{
+// io.on('connection',(socket)=>
+// {
 
-console.log("New User Connected")
+// console.log("New User Connected")
 // When the user connects the server in client side.
 // eg: when he opens the portal
 // connection event
@@ -38,12 +38,16 @@ console.log("New User Connected")
 // emit method helps to create custom event
 
 // },1000)
-socket.on('message',(msg)=>
-{
-    console.log(msg)
-})
-})
+// socket.on('myEvent',(msg)=>
+// {
+//     console.log(msg)
+// })
+// })
 
+io.on('connection',(socket)=>
+{
+io.sockets.emit("myBroadcastEvent","Hello All")
+})
 
 app.get('/',(req,res)=>{
     res.sendFile(__dirname+'/index.html')
