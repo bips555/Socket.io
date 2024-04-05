@@ -18,9 +18,10 @@
     <button id="send" onclick="send()">Send </button> -->
     <!-- <h1 id="message"></h1> -->
     <h3 class="text-center m-3">Socket Simple Live Chat</h3>
+    <h1 id="message"></h1>
     <script src="/socket.io/socket.io.js"></script>
 
-    <div class="container">
+    <!-- <div class="container">
       <div class="row d-flex justify-content-center">
         <div class="col-md-6 col-12 col-lg-6">
           <div class="input-group">
@@ -28,15 +29,18 @@
             <button onclick="sendMsg()" class="btn btn-info">Send Data</button>
           </div>
         </div>
+        
       </div>
     </div>
     <div class="container">
       <div class="row d-flex justify-content-center">
         <div class="col-md-6 col-12 col-lg-6">
-          <ul></ul>
+          <ul id="msghistory" class="text-decoration-none">
+
+          </ul>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!--Includes socket library from server and allows client side javascript to communicate with the server  -->
 
@@ -69,12 +73,26 @@
      </script>  -->
     <script>
       let socket = io();
-      const sendMsg = () => {
+      socket.on('sleep',(msg)=>
+      {
+        document.getElementById('message').innerHTML = msg
+      })
+
+    //   const sendMsg = () => {
        
-          let msg = document.getElementById("message").value;
-          alert(msg);
-        ;
-      };
+    //       let msg = document.getElementById("message").value;
+    //      socket.emit('chat',msg)
+    //      document.getElementById("message").value="";
+     
+
+    //   };
+    //   socket.on('chat_send',(msg)=>
+    //   {
+    //     let listItem = document.createElement('li')
+    //     listItem.textContent = msg
+    //     let msghistory = document.getElementById('msghistory')
+    //     msghistory.appendChild(listItem)
+    //   })
     </script>
   </body>
 </html>

@@ -1,11 +1,11 @@
 const express = require("express");
 const app = express();
-const http = require('http')
-const expressServer = http.createServer(app)
+const http = require("http");
+const expressServer = http.createServer(app);
 
-const {Server} = require('socket.io')
+const { Server } = require("socket.io");
 
-const io = new Server(expressServer)
+const io = new Server(expressServer);
 // created object of socket Server
 
 // io.on('connection',(socket)=>
@@ -62,17 +62,28 @@ const io = new Server(expressServer)
 //    sellNsp.emit('myEvent',"Hello? Are you Selling?")
 // })
 
+// io.on("connection", (socket) => {
+//   socket.on("chat", (msg) => {
+//     console.log(msg);
+//     io.emit("chat_send", msg);
+//   });
+// });
+
 io.on('connection',(socket)=>
 {
-    console.log("New User Connected")
+
+socket.join('kitchen-room')
+io.sockets.in('kitchen-room').emit('cooking','fried rice cooking')
+socket.join('bed-room')
+io.sockets.in('bed-room').emit('sleep','i am sleeping')
+
 })
 
 
-app.get('/',(req,res)=>{
-    res.sendFile(__dirname+'/index.html')
-})
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/index.html");
+});
 
-expressServer.listen(3000, ()=>
-{
-    console.log("Server is running on port 3000")
-})
+expressServer.listen(3000, () => {
+  console.log("Server is running on port 3000");
+});
